@@ -1,0 +1,21 @@
+{
+  "name": "schedule-element",
+  "description": "web component for FHIR resource Schedule",
+  "main": "schedule-element.js",
+  "dependencies": {
+    "@material/mwc-button": "^0.1.1",
+    "@material/mwc-checkbox": "^0.1.1",
+    "@material/mwc-fab": "^0.1.1",
+    "@material/mwc-formfield": "file:../../material-components-web-components/packages/formfield",
+    "@material/mwc-icon": "^0.1.1",
+    "@material/mwc-radio": "^0.1.1",
+    "@material/mwc-switch": "^0.1.1",
+    "@material/mwc-textfield": "file:../../material-components-web-components/packages/textfield",
+    "@polymer/lit-element": "^0.5.1",
+    "@polymer/polymer": "^3.0.0"
+  },
+  "devDependencies": {
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "wct-browser-legacy": "^1.0.0"
+  }
+}
