@@ -1,16 +1,25 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
-    <title>schedule-element demo</title>
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script type="module" src="../fhir/schedule/schedule-element.js"></script>
-  </head>
-  
-  <body>
-    <div>
-      <schedule-element message="hello"></schedule-element>
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+        <title>FHIR Web Components Demo</title>
+        <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+        <script type="module" src="../fhir/schedule/schedule-base/schedule-base.js"></script>
+        <script type="module" src="../fhir/common/search-with-option.js"></script>
+        <script type="module" src="../fhir/schedule/schedule-display/schedule-display.js"></script>
+    </head>
+    <body>
+        <div>
+            <lhwc-schedule-base>
+                <div slot="sidebar">
+                    <lhwc-search-with-options searchInput="Reference"></lhwc-search-with-options>
+                </div>
+                <div slot="main">
+                    <lhwc-schedule-display></lhwc-schedule-display>
+                </div>
+            </lhwc-schedule-base>
+        </div>
+    </body>
 </html>
