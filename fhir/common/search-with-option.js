@@ -1,5 +1,4 @@
 import {LitElement, html} from '@polymer/lit-element';
-import {style} from './common-css.js';
 import {Button} from "@material/mwc-button";
 import {Textfield} from "@material/mwc-textfield";
 
@@ -12,32 +11,29 @@ import {Textfield} from "@material/mwc-textfield";
  * @demo demo/index.html
  */
 class SearchWithOptions extends LitElement {
+
 	static get properties() {
-		return { searchInput: String}
+		return {
+		    inputLabel: String,
+		    optionsToSelect: Object
+		}
 	};
 
-	_render({searchInput}) {
-	return html`
-	    ${style}
-        <div class="lh-section">
-            <div>
-                <label for="search-select">${searchInput} Type </label>
-                <select id="search-select" name="actor-reference" class="search-select">
-                    <option value="healthcare-service">Healthcare Service</option>
-                    <option value="location">Location</option>
-                    <option value="practitioner">Practitioner</option>
-                    <option value="device">Device</option>
-                    <option selected value="patient">Patient</option>
-                </select>
-            </div>
-            <div>
-                <label for="search-textfield">${searchInput}</label>
-                <mwc-textfield outlined id="search-textfield"></mwc-textfield>
-            <div>
-            <mwc-button class="search-button" raised label="Search"></mwc-button>
-        </div>
-
-	`;
+	_render({inputLabel, optionsToSelect}) {
+        var optionTypesArr = JSON.parse(optionsToSelect);
+        return html`
+            <mwc-textfield outlined label= ${inputLabel} id="search-textfield"></mwc-textfield>
+            <select id="search-select">
+                <option selected value="0">${optionTypesArr[0]}</option>
+                <option value="1">${optionTypesArr[1]}</option>
+                <option value="2">${optionTypesArr[2]}</option>
+                <option value="3">${optionTypesArr[3]}</option>
+                <option value="4">${optionTypesArr[4]}</option>
+                <option value="5">${optionTypesArr[5]}</option>
+                <option value="6">${optionTypesArr[6]}</option>
+            </select>
+            <mwc-button style="margin: 10px;" raised label="Search"></mwc-button>
+        `;
 	}
 }
 

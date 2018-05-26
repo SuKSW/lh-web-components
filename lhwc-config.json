@@ -1,0 +1,8 @@
+{
+  "baseUrl": "Bundle",
+  "CodingSystems": {
+      "serviceCategory" : "http://hl7.org/fhir/service-category",
+      "serviceType" : "http://hl7.org/fhir/service-type",
+      "specialty" : "http://snomed.info/sct"
+  }
+}

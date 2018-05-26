@@ -6,20 +6,50 @@
         <title>FHIR Web Components Demo</title>
         <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 
-        <script type="module" src="../fhir/schedule/schedule-base/schedule-base.js"></script>
+        <link rel="stylesheet" href="demo.css">
+        <script type="module" src="../fhir/common/main-section.js"></script>
+        <script type="module" src="../fhir/common/sub-section.js"></script>
         <script type="module" src="../fhir/common/search-with-option.js"></script>
+        <script type="module" src="../fhir/schedule/schedule-add/schedule-add.js"></script>
+        <script type="module" src="../fhir/schedule/schedule-base.js"></script>
+
         <script type="module" src="../fhir/schedule/schedule-display/schedule-display.js"></script>
+
     </head>
     <body>
-        <div>
-            <lhwc-schedule-base>
-                <div slot="sidebar">
-                    <lhwc-search-with-options searchInput="Reference"></lhwc-search-with-options>
-                </div>
-                <div slot="main">
-                    <lhwc-schedule-display></lhwc-schedule-display>
-                </div>
-            </lhwc-schedule-base>
+        <!--<div>
+            <div class="demo-h"><h3>Component 1 - Element name: lhwc-main-section</h3>
+                custom elements used: none
+            </div>
+            <lhwc-main-section heading="Main Section Heading">Main Section Content</lhwc-main-section>
         </div>
+        <div>
+            <div class="demo-h"><h3>Component 2 - Element name: lhwc-sub-section</h3>
+                custom elements used: none
+            </div>
+            <lhwc-sub-section>Sub Section Content</lhwc-sub-section>
+        </div>
+        <div>
+            <div class="demo-h"><h3>Component 3 - Element name: lhwc-search-with-options</h3>
+                custom elements used: none
+            </div>
+            <lhwc-search-with-options
+                inputLabel="Input label.."
+                optionsToSelect='[ "option a", "option b", "option c", "option d","option e", "option f", "option g" ]'>
+            </lhwc-search-with-options>
+        </div>-->
+        <div>
+            <div class="demo-h"><h3>Component 4 - Element name: lhwc-schedule-add</h3>
+                custom elements used: lhwc-main-section, lhwc-sub-section,
+            </div>
+            <lhwc-schedule-add></lhwc-schedule-add>
+        </div>
+        <!--<div>
+            <div class="demo-h"><h3>Component 4 - Element name: lhwc-schedule-base</h3>
+                custom elements used: lhwc-main-section, lhwc-sub-section, lhwc-schedule-display
+            </div>
+            <lhwc-schedule-base></lhwc-schedule-base>
+        </div>-->
+
     </body>
 </html>
