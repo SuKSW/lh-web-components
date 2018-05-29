@@ -10,49 +10,41 @@ import {ScheduleDisplay} from './schedule-display/schedule-display.js';
  * @demo demo/index.html
  */
 class ScheduleBase extends LitElement {
+    static get properties() {
+        return {
+          resourceReference: String,
+          resourceType: String,
+          scheduleDate: Date
+        }
+    }
 
-	_render() {
-	return html`
-    <style>
-    .schedule-base {
-        overflow: auto;
-        display: grid;
-        grid-template-columns: 230px auto;
-        grid-template-areas:
-        'header header'
-        'sidebar main'
-        'sidebar main';
-        grid-gap: 10px;
+    constructor() {
+        super();
+        this.resourceReference = "";
+        this.resourceType = "";
     }
-    .schedule-base-sidebar {
-        display: inline-block;
-        grid-area: sidebar;
-    }
-    .schedule-base-main {
-        grid-area: main;
-    }
-    </style>
-    <lhwc-main-section heading="Schedule View">
-        <div id="schedule-base" class="schedule-base">
-            <div id="schedule-base-sidebar" class="schedule-base-sidebar">
-                <lhwc-sub-section>
-                    <label for="schedule-date">Date </label>
-                    <input id="schedule-date" type="date" data-date-inline-picker="true" data-initialized="true"/>
-                </lhwc-sub-section>
-                <lhwc-sub-section>
-                    <lhwc-search-with-options
-                        inputLabel="Enter reference.."
-                        optionsToSelect='[ "HealthcareService", "Location", "Practitioner", "PractitionerRole",
-                             "Device", "Patient", "RelatedPerson" ]'>
-                    </lhwc-search-with-options>
-                </lhwc-sub-section>
+
+	_render({resourceReference, resourceType, scheduleDate}) {
+        return html`
+        <style>
+        </style>
+        <lhwc-main-section heading="Schedule View">
+            <div slot="main-section-heading-slot">
+                <label for="schedule-date">Date </label>
+                <input id="schedule-date" type="date"/>
+                <lhwc-search-with-options
+                    inputValue=${resourceReference}
+                    optionSelected=${resourceType}
+                    inputLabel="Reference"
+                    optionsToSelect='[ "HealthcareService", "Location", "Practitioner", "PractitionerRole",
+                         "Device", "Patient", "RelatedPerson" ]'>
+                </lhwc-search-with-options>
             </div>
-            <div id="schedule-base-main" class="schedule-base-main lh-section">
+            <div id="schedule-base">
                 <lhwc-schedule-display></lhwc-schedule-display>
             </div>
-        </div>
-    </lhwc-main-section>
-	`;
+        </lhwc-main-section>
+        `;
 	}
 }
 

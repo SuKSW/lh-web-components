@@ -12,23 +12,34 @@ class MainSection extends LitElement {
 	_render({heading}) {
 	return html`
         <style>
-            .main-section-heading {
+            .m-sec-heading-area {
                 color: white;
-                text-align: left;
-                padding: 10px 16px;
-                font-size: 17px;
+                height: 50px;
                 background-color: #3CBC8D;
-                font-weight: bold;
                 margin: 0px;
-                grid-area: header;
+                width: 100%;
             }
-            .main-section-body {
+            .m-sec-heading {
+                font-weight: bold;
+                margin-right: 10px;
+            }
+            .m-sec-heading-other {
+                margin-right: 6px;
+                font-size: 14px;
+            }
+            .m-sec-body {
                 background-color: #e3e7ed;
             }
         </style>
-        <div>
-            <div id="main-section-heading" class="main-section-heading">${heading}</div>
-            <div id="main-section-body" class="main-section-body">
+        <div><table class="m-sec-heading-area">
+            <tr id="m-sec-heading-area" class="m-sec-heading-area">
+                <td class="m-sec-heading">${heading}</td>
+                <td class="m-sec-heading-other">
+                    <slot name="main-section-heading-slot"></slot>
+                </td>
+            </tr></table>
+
+            <div id="m-sec-body" class="m-sec-body">
                 <slot></slot>
             </div>
         </div>
