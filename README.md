@@ -20,6 +20,9 @@ yet been released via npm are also being used in this project)
 	`git clone https://github.com/SuKSW/lh-web-components.git`   
 4. Change directory to "lh_web_components" and install project dependencies  
 	`cd lh_web_components  
-	npm install`  
-5. Run the demo to view the web components  
-	`polymer serve`   
+	npm install`
+5. Uncomment a component in lh_web_components/demo/index.html to view
+6. Run the demo to view the web components
+	`polymer serve`
+
+To view a different component edit lh_web_components/demo/index.html and refresh the browser  

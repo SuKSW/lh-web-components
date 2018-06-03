@@ -1,24 +1,25 @@
 import {LitElement, html} from '@polymer/lit-element';
 import {Button} from "@material/mwc-button";
+import {Textfield} from "@material/mwc-textfield";
 
 /**
  * `lhwc-search-with-options element`
  * web component for all FHIR resources
- *
- * @customElement
- * @polymer
- * @demo demo/index.html
  */
 class SearchWithOptions extends LitElement {
     constructor() {
         super();
         this.inputValue = "";
+        this.inputValue2 = "a";
+        this.inputValue3 = "";
         this.optionSelected = "";
     }
 
 	static get properties() {
 		return {
 		    inputValue: String,
+		    inputValue2: String,
+		    inputValue3: String,
             optionSelected: String,
 		    inputLabel: String,
 		    optionsToSelect: Object
@@ -26,7 +27,7 @@ class SearchWithOptions extends LitElement {
 	};
 
 	_render({inputLabel, optionsToSelect}) {
-        var optionTypesArr = JSON.parse(optionsToSelect);
+        var optionsArr = JSON.parse(optionsToSelect);
         return html`
             <style>
              .search-input {
@@ -37,25 +38,33 @@ class SearchWithOptions extends LitElement {
              }
             </style>
             <label class="search-gap-tiny" for="search-input">${inputLabel}</label>
-            <input class="search-input" id="search-input"
-                on-input=${e => this.inputValue = e.target.value}></input>
+
+
+            Native : <input class="search-input" id="search-input"
+                on-input=${e => this.inputValue = e.target.value}></input></br>
+            MVC textfield1 :
+            <mwc-textfield on-input=${e => this.inputValue2 = e.target.value}></mwc-textfield></br>
+            MVC textfield2 :
+            <mwc-textfield on-input="setValueToInputValue3"></mwc-textfield></br>
+
+
             <select class="search-gap-tiny" id="search-select">
-                <option selected value="0">${optionTypesArr[0]}</option>
-                <option value="1">${optionTypesArr[1]}</option>
-                <option value="2">${optionTypesArr[2]}</option>
-                <option value="3">${optionTypesArr[3]}</option>
-                <option value="4">${optionTypesArr[4]}</option>
-                <option value="5">${optionTypesArr[5]}</option>
-                <option value="6">${optionTypesArr[6]}</option>
+                ${optionsArr.map((i) => html`<option value$=${i.id}>${i.name}</option>`)}
             </select>
             <mwc-button class="search-gap-tiny" raised label="Search"
-                on-click=${() => this.searchSchedule()}>
+                on-click=${() => this.showTheInput()}>
             </mwc-button>
         `;
 	}
 
-	searchSchedule() {
+	setValueToInputValue3 (e) {
+	    this.inputValue3 = e.target.value;
+	}
+
+	showTheInput() {
         console.log(this.inputValue);
+        console.log(this.inputValue2);
+        console.log(this.inputValue3);
     }
 }
 

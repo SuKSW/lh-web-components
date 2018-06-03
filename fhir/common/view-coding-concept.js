@@ -17,7 +17,6 @@ class ViewCodingConcept extends LitElement {
     };
 
 	_render({codingConcept, display, code, userSelected, text}) {
-	console.log("ok");
 	return html`
 	    <style>
 	    </style>
@@ -27,8 +26,6 @@ class ViewCodingConcept extends LitElement {
             <tr><td>User Selected   </td><td>: ${userSelected}</td></tr>
             <tr><td>Description     </td><td>: ${text}</td></tr>
 	    </table>
-
-
 	`;
 	}
 
