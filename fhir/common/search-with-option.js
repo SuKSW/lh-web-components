@@ -54,6 +54,9 @@ class SearchWithOptions extends LitElement {
             <mwc-button class="search-gap-tiny" raised label="Search"
                 on-click=${() => this.showTheInput()}>
             </mwc-button>
+            <mwc-button class="search-gap-tiny" raised label="Search"
+                on-click="setValueToInputValue3">
+            </mwc-button>
         `;
 	}
 
